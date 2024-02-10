@@ -5,6 +5,8 @@ import java.util.UUID;
 
 import org.hibernate.annotations.CreationTimestamp;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -13,6 +15,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -20,6 +23,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity(name = "answers_certification_students")
+@Builder
 public class AnswersCertificationsEntity {
 
   @Id
@@ -47,7 +51,7 @@ public class AnswersCertificationsEntity {
   private UUID answerID;
 
   @Column(name = "is_correct")
-  private double isCorrect;
+  private boolean isCorrect;
 
   @CreationTimestamp
   private LocalDateTime createdAt;
